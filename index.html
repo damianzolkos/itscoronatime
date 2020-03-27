@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="chart-js/Chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline@0.1.3/src/chartjs-plugin-trendline.min.js">
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>It's Corona Time! in Poland</title>
+</head>
+
+<body>
+    <header id="header">
+        <div id="logo"><img src="logo_wide.png" alt="logo"></div>
+        <div id="lead">Informacje na temat rozprzestrzeniania się i obecności koronawirusa w Polsce</div>
+        <div id="menu">
+            <ul>
+                <a href="#info">
+                    <li>Ogólne</li>
+                </a>
+                <a href="#trajektoriaID">
+                    <li>Trajektoria</li>
+                </a>
+                <a href="#wzrostID">
+                    <li>Wzrost</li>
+                </a>
+                <a href="#noweID">
+                    <li>Nowe przypadki</li>
+                </a>
+                <a href="#">
+                    <li>Informacje</li>
+                </a>
+            </ul>
+        </div>
+    </header>
+
+    <div id="content">
+        <article id="info">
+            <p>Zarażenia: <span class="box" id="cases"></span></p>
+            <p>Śmierci: <span class="box" id="deaths"></span></p>
+            <br>
+            <p class="text">dane aktualizowane raz dziennie, około godziny 21</p>
+        </article>
+        <article>
+            <h2 id="trajektoriaID">Trajektoria</h2>
+            <!-- <p class="text">Lorem ipsum dolor sit amet.</p> -->
+            <canvas id="trajektoria" width="10" height="6"></canvas>
+        </article>
+        <article>
+            <h2 id="wzrostID">Wzrost potwierdzonych przypadków</h2>
+            <!-- <p class="text">Lorem ipsum dolor sit amet.</p> -->
+            <canvas id="wzrost" width="10" height="6"></canvas>
+        </article>
+        <article>
+            <h2 id="noweID">Nowe potwierdzone przypadki na dzień</h2>
+            <!-- <p class="text">Lorem ipsum dolor sit amet.</p> -->
+            <canvas id="nowe" width="10" height="6"></canvas>
+        </article>
+    </div>
+
+    <div id="footer">
+        &copy <a href="https://damianzolkos.github.io">Damian Żółkoś</a><br><br>
+        dane na podstawie: <a href="https://koronawirusunas.pl/">koronawirusunas.pl</a>
+        <br><br>
+        wersja: 0.1.beta
+    </div>
+
+
+    <script>
+        async function load() {
+            let url = 'data.json';
+            json = await (await fetch(url)).json();
+            console.log(json);
+
+            receivedData = json.newCases;
+            let cases = 0;
+            for (let i = 0; i < json.newCases.length; i++) {
+                cases = cases + json.newCases[i];
+            };
+            document.getElementById('cases').innerHTML = cases;
+            document.getElementById('deaths').innerHTML = json.deaths;
+
+
+
+
+
+            let ctx1 = document.getElementById('trajektoria');
+            let data1 = {
+                datasets: [{
+                        backgroundColor: '#ff4081',
+                        borderColor: '#ff4081',
+                        borderWidth: 3,
+                        fill: false,
+                        pointRadius: 4,
+                        pointRadiusHover: 4,
+                        pointBorderWidth: 0,
+                        data: [],
+                        trendlineLinear: {
+                            style: "rgb(43 ,66 ,255, 0.3)",
+                            lineStyle: "dotted|solid",
+                            width: 2
+                        },
+                    },
+                    {
+                        backgroundColor: 'blue',
+                        borderColor: 'blue',
+                        borderWidth: 3,
+                        fill: false
+                    }
+                ],
+                labels: []
+            };
+            let options = {
+                responsive: true,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: true,
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        // type: 'logarithmic',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Wszystkie potwierdzone przypadki'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 0
+                        },
+                        display: true,
+                        type: 'logarithmic',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Nowe potwierdzone przypadki'
+                        }
+                    }]
+                }
+            };
+
+            function renderChart1() {
+                data1.datasets[0].data = receivedData;
+                data1.labels[0] = data1.datasets[0].data[0];
+                for (let i = 1; i < data1.datasets[0].data["length"]; i++) {
+                    data1.labels[i] = data1.datasets[0].data[i] + data1.labels[i - 1];
+                }
+
+                console.log(data1.labels);
+                console.log(data1.datasets[0].data);
+
+                let myChart = new Chart(ctx1, {
+                    type: 'line',
+                    data: data1,
+                    options: options
+                });
+            }
+            renderChart1();
+
+            let ctx2 = document.getElementById('wzrost');
+            let data2 = {
+                datasets: [{
+                        backgroundColor: '#ff4081',
+                        borderColor: '#ff4081',
+                        borderWidth: 3,
+                        fill: false,
+                        pointRadius: 4,
+                        pointRadiusHover: 4,
+                        pointBorderWidth: 0,
+                        data: []
+                    },
+                    {
+                        backgroundColor: 'blue',
+                        borderColor: 'blue',
+                        borderWidth: 3,
+                        fill: false
+                    }
+                ],
+                labels: []
+            };
+            let options2 = {
+                responsive: true,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: true,
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        // type: 'logarithmic',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Liczba dni'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 0
+                        },
+                        display: true,
+                        // type: 'logarithmic',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Ilość potwierdzonych przypadków'
+                        }
+                    }]
+                }
+            };
+
+            function renderChart2() {
+                data2.datasets[0].data = data1.labels;
+                for (let i = 0; i < data2.datasets[0].data["length"]; i++) {
+                    data2.labels[i] = i + 1;
+                }
+                console.log(data2.labels);
+                console.log(data2.datasets[0].data);
+                let myChart = new Chart(ctx2, {
+                    type: 'line',
+                    data: data2,
+                    options: options2
+                });
+            }
+            renderChart2();
+
+
+            let ctx3 = document.getElementById('nowe');
+            let data3 = {
+                datasets: [{
+                        backgroundColor: '#ff4081',
+                        borderColor: '#ff4081',
+                        borderWidth: 3,
+                        fill: false,
+                        pointRadius: 4,
+                        pointRadiusHover: 4,
+                        pointBorderWidth: 0,
+                        data: []
+                    },
+                    {
+                        backgroundColor: 'blue',
+                        borderColor: 'blue',
+                        borderWidth: 3,
+                        fill: false
+                    }
+                ],
+                labels: []
+            };
+            let options3 = {
+                responsive: true,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: true,
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        // type: 'logarithmic',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Liczba dni'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 0
+                        },
+                        display: true,
+                        // type: 'logarithmic',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Ilość potwierdzonych przypadków'
+                        }
+                    }]
+                }
+            };
+
+            function renderChart3() {
+                data3.datasets[0].data = data1.datasets[0].data;
+                data3.labels = data2.labels;
+
+                console.log(data3.labels);
+                console.log(data3.datasets[0].data);
+                let myChart = new Chart(ctx3, {
+                    type: 'line',
+                    data: data3,
+                    options: options3
+                });
+            }
+            renderChart3();
+
+        }
+        load();
+    </script>
+
+</body>
+
+</html>

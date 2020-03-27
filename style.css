@@ -1,0 +1,101 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+a:link,:visited {
+    text-decoration: none;
+    color: #000;
+}
+#header {
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+}
+#logo img {
+    max-width: 500px;
+}
+#lead {
+    margin: 30px auto;
+    max-width: 600px;
+    font-size: 16pt;
+    font-weight: 100;
+}
+#menu {
+    position: relative;
+    margin-top: 50px;
+    font-weight: 400;
+}
+#menu ul {
+    padding: 0;
+    margin: 0;
+}
+#menu li{
+    display: inline;
+    padding: 10px 20px;
+    font-size: 14pt;
+}
+#menu li:hover {
+    background-color: #7500c1;
+    color: #fff;
+}
+#info {
+    border-top: 2px #7500c1 solid;
+    border-bottom: 2px #7500c1 solid;
+    padding: 20px 0px;
+    position: relative;
+    margin: 60px auto;
+    font-weight: 400;
+    font-size: 22pt;
+    text-align: center;
+    max-width: 80%;
+}
+.box {
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+}
+#cases {
+    background-color: #7500c1;
+}
+#deaths {
+    background-color: #111;
+}
+article {
+    margin: 50px auto;
+    position: relative;
+    max-width: 60%;
+}
+#footer {
+    border-top: 2px #7500c1 solid;
+    padding: 20px 0px;
+    position: relative;
+    margin: 60px auto;
+    text-align: center;
+    max-width: 80%;
+}
+h2 {
+    font-size: 16pt;
+    margin: 0px 0px 5px;
+}
+.text {
+    margin: 1px 0px 15px;
+    font-size: 12pt;
+}
+canvas {
+    margin: 40px 0px 80px;
+}
+
+@media screen and (max-width: 600px) {
+    #info {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    #menu li {
+        display: block;
+    }
+    article {
+        max-width: 90%;
+        min-width: 85%;
+    }
+}
