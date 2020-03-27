@@ -107,6 +107,9 @@ canvas {
     #logo_mobile {
         display: inline-block;
     }
+    #logo img {
+        max-width: 60%;
+    }
     #logo_wide {
         display: none;
     }
