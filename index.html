@@ -43,8 +43,9 @@
 
     <div id="content">
         <article id="info">
-            <p>Zarażenia: <span class="box" id="cases"></span></p>
+            <p>Zarażeni: <span class="box" id="cases"></span></p>
             <p>Śmierci: <span class="box" id="deaths"></span></p>
+            <p>Zmiana dzienna: <span class="box" id="daily"></span></p>
             <br>
             <p class="text">dane aktualizowane raz dziennie, około godziny 21<br>
             ostatnia aktualizacja: <span id="refresh"></span></p>
@@ -87,6 +88,7 @@
             };
             document.getElementById('cases').innerHTML = cases;
             document.getElementById('deaths').innerHTML = json.deaths;
+            document.getElementById('daily').innerHTML = "+" + json.newCases[json.newCases.length-1];
             document.getElementById('refresh').innerHTML = json.refresh;
 
 

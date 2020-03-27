@@ -62,7 +62,10 @@ a:link,:visited {
     border-radius: 5px;
 }
 #cases {
-    background-color: #7500c1;
+    background-color: rgb(189, 0, 0);
+}
+#daily {
+    background-color: rgb(0, 69, 158);
 }
 #deaths {
     background-color: #111;
