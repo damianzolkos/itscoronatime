@@ -15,6 +15,12 @@ a:link,:visited {
 #logo img {
     max-width: 500px;
 }
+#logo_wide {
+    display: inline-block;
+}
+#logo_mobile {
+    display: none;
+}
 #lead {
     margin: 30px auto;
     max-width: 600px;
@@ -97,5 +103,17 @@ canvas {
     article {
         max-width: 90%;
         min-width: 85%;
+    }
+    #logo_mobile {
+        display: inline-block;
+    }
+    #logo_wide {
+        display: none;
+    }
+    #lead {
+        margin: 30px auto;
+        max-width: 80%;
+        font-size: 14pt;
+        font-weight: 100;
     }
 }
