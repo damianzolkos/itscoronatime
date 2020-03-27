@@ -46,7 +46,8 @@
             <p>Zarażenia: <span class="box" id="cases"></span></p>
             <p>Śmierci: <span class="box" id="deaths"></span></p>
             <br>
-            <p class="text">dane aktualizowane raz dziennie, około godziny 21</p>
+            <p class="text">dane aktualizowane raz dziennie, około godziny 21<br>
+            ostatnia aktualizacja: <span id="refresh"></span></p>
         </article>
         <article>
             <h2 id="trajektoriaID">Trajektoria</h2>
@@ -86,6 +87,7 @@
             };
             document.getElementById('cases').innerHTML = cases;
             document.getElementById('deaths').innerHTML = json.deaths;
+            document.getElementById('refresh').innerHTML = json.refresh;
 
 
 
