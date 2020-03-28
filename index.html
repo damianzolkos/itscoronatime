@@ -48,7 +48,7 @@
             <p>Zmiana dzienna: <span class="box" id="daily"></span></p>
             <br>
             <p class="text">dane aktualizowane raz dziennie, około godziny 21<br>
-            ostatnia aktualizacja: <span id="refresh"></span></p>
+                ostatnia aktualizacja: <span id="refresh"></span></p>
         </article>
         <article>
             <h2 id="trajektoriaID">Trajektoria</h2>
@@ -88,7 +88,7 @@
             };
             document.getElementById('cases').innerHTML = cases;
             document.getElementById('deaths').innerHTML = json.deaths;
-            document.getElementById('daily').innerHTML = "+" + json.newCases[json.newCases.length-1];
+            document.getElementById('daily').innerHTML = "+" + json.newCases[json.newCases.length - 1];
             document.getElementById('refresh').innerHTML = json.refresh;
 
 
@@ -132,8 +132,8 @@
                 },
                 scales: {
                     xAxes: [{
-                        display: true,
                         // type: 'logarithmic',
+                        display: true,
                         scaleLabel: {
                             display: true,
                             labelString: 'Wszystkie potwierdzone przypadki'
@@ -252,7 +252,17 @@
                         pointRadius: 4,
                         pointRadiusHover: 4,
                         pointBorderWidth: 0,
-                        data: []
+                        data: [],
+                    },
+                    {
+                        backgroundColor: '#ff4081',
+                        borderColor: '#ffc300',
+                        borderWidth: 2,
+                        fill: false,
+                        pointRadius: 0,
+                        pointRadiusHover: 4,
+                        pointBorderWidth: 0,
+                        data: [],
                     },
                     {
                         backgroundColor: 'blue',
@@ -290,7 +300,7 @@
                         // type: 'logarithmic',
                         scaleLabel: {
                             display: true,
-                            labelString: 'Ilość potwierdzonych przypadków'
+                            labelString: 'Ilość nowych potwierdzonych przypadków'
                         }
                     }]
                 }
@@ -300,8 +310,13 @@
                 data3.datasets[0].data = data1.datasets[0].data;
                 data3.labels = data2.labels;
 
+                for (let i = 0; i < data3.labels.length; i++) {
+                    data3.datasets[1].data[i] = 0.4534*data3.labels[i]*data3.labels[i] - 1.6261*data3.labels[i] + 4.4917;
+                }
+
                 console.log(data3.labels);
                 console.log(data3.datasets[0].data);
+                console.log(data3.datasets[1].data);
                 let myChart = new Chart(ctx3, {
                     type: 'line',
                     data: data3,
@@ -310,9 +325,14 @@
             }
             renderChart3();
 
+
+            // y = 0.0001*data3.labels[i]^4 - 0.0016*data3.labels[i]^3 + 0.4064*data3.labels[i]^2 - 0.9058*data3.labels[i] + 2.7353
+
+
         }
         load();
     </script>
 
 </body>
+
 </html>
