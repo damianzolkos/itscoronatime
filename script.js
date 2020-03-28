@@ -2,6 +2,7 @@ var json = {};
 var data1 = {};
 var data2 = {};
 var data3 = {};
+var data4 = {};
 
 async function load() {
     let url = 'data.json';
@@ -13,14 +14,28 @@ async function load() {
     for (let i = 0; i < json.newCases.length; i++) {
         cases = cases + json.newCases[i];
     };
+    cases = cases + 1;
     document.getElementById('cases').innerHTML = cases;
     document.getElementById('deaths').innerHTML = json.deaths;
     document.getElementById('daily').innerHTML = "+" + json.newCases[json.newCases.length - 1];
     document.getElementById('refresh').innerHTML = json.refresh;
 
-    for (i = 1; i < 17; i++) {
-        document.getElementById(i).innerHTML = json.wojewodztwa[i - 1];
-    }
+    document.getElementById(1).innerHTML = json.woj.dolnośląskie;
+    document.getElementById(2).innerHTML = json.woj.kujawskopomorskie;
+    document.getElementById(3).innerHTML = json.woj.lubelskie;
+    document.getElementById(4).innerHTML = json.woj.lubuskie;
+    document.getElementById(5).innerHTML = json.woj.łódzkie;
+    document.getElementById(6).innerHTML = json.woj.małopolskie;
+    document.getElementById(7).innerHTML = json.woj.mazowieckie;
+    document.getElementById(8).innerHTML = json.woj.opolskie;
+    document.getElementById(9).innerHTML = json.woj.podkarpackie;
+    document.getElementById(10).innerHTML = json.woj.podlaskie;
+    document.getElementById(11).innerHTML = json.woj.pomorskie;
+    document.getElementById(12).innerHTML = json.woj.śląskie;
+    document.getElementById(13).innerHTML = json.woj.świętokrzyskie;
+    document.getElementById(14).innerHTML = json.woj.warmińskomazurskie;
+    document.getElementById(15).innerHTML = json.woj.wielkopolskie;
+    document.getElementById(16).innerHTML = json.woj.zachodniopomorskie;
 
     let ctx1 = document.getElementById('trajektoria');
     data1 = {
@@ -109,6 +124,7 @@ async function load() {
             }
         }
 
+        // linia trendu
         for (let i = 0; i < receivedData["length"]; i++) {
             data1.datasets[1].data[i] = {
                 x: data1.datasets[0].data[i].x,
