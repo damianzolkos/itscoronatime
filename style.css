@@ -114,7 +114,7 @@ a:visited {
 }
 
 #cases {
-    background-color: rgb(189, 0, 0);
+    background-color: rgb(190, 45, 45);
 }
 
 #daily {
@@ -128,7 +128,7 @@ a:visited {
 article {
     margin: 50px auto;
     position: relative;
-    max-width: 60%;
+    max-width: 65%;
 }
 
 #footer {
@@ -156,6 +156,9 @@ h2 {
     margin: 1px 0px 15px;
     font-size: 12pt;
 }
+.aktualizacja {
+    font-weight: 300;
+}
 
 canvas {
     margin: 40px 0px 80px;
@@ -172,6 +175,14 @@ canvas {
         display: block;
         min-width: calc(100% - 60px);
         margin: 0px 30px;
+    }
+    #menu li {
+        display: block;
+    }
+    article {
+        margin: 50px auto;
+        position: relative;
+        max-width: 80%;
     }
 }
 

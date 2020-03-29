@@ -7,7 +7,7 @@
     <script src="chart-js/Chart.js"></script>
     <meta name="theme-color" content="#7500c1" />
     <script src="script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -26,8 +26,8 @@
             <img id="logo_wide" src="logo_wide.png" alt="logo">
             <img id="logo_mobile" src="logo.png" alt="logo">
         </div>
-        <div id="lead">Informacje na temat rozprzestrzeniania się i obecności koronawirusa w Polsce, bo mi się nudziło i
-            nigdzie nie było ładnego wykresu</div>
+        <div id="lead">Informacje na temat rozprzestrzeniania się i obecności koronawirusa w Polsce, bo mi się nudziło, a
+            nigdzie nie było fajnego wykresu</div>
         <div id="menu">
             <ul>
                 <a href="#info">
@@ -58,7 +58,7 @@
             <p>Zgony: <span class="box" id="deaths"></span></p>
             <p>Zmiana dzienna: <span class="box" id="daily"></span></p>
             <br>
-            <p class="text">dane aktualizowane raz dziennie, około godziny 21<br>
+            <p class="text aktualizacja">dane aktualizowane raz dziennie, około godziny 21<br>
                 ostatnia aktualizacja: <span id="refresh"></span></p>
         </article>
         <article>
@@ -70,7 +70,6 @@
             <br>
             <h2 id="wojewodztwa">Ilość potwierdzonych przypadków</h2>
             <p class="text">z podziałem na województwa</p>
-            <p class="text">ostatnia aktualizacja: 28.03.2020, 13:00</p>
             <div id="w">
                 <div class="wdiv w1">
                     <p class="wname">dolnośląskie: <span class="box wbox even" id="1">0</span></p>
