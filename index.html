@@ -135,12 +135,20 @@
             let url = 'data.json';
             json = await (await fetch(url)).json();
 
+
+            var wojewodztwa = [json.woj.dolnośląskie, json.woj.kujawskopomorskie, json.woj.lubelskie, json.woj
+                .lubuskie, json.woj.łódzkie, json.woj.małopolskie, json.woj.mazowieckie, json.woj.opolskie, json
+                .woj.podkarpackie, json.woj.podlaskie, json.woj.pomorskie, json.woj.śląskie, json.woj
+                .świętokrzyskie, json.woj.warmińskomazurskie, json.woj.wielkopolskie, json.woj
+                .zachodniopomorskie
+            ];
+
             for (i = 1; i < 17; i++) {
                 var circle = L.circle([json.longitude[i - 1], json.latitude[i - 1]], {
                     color: 'red',
                     fillColor: '#f03',
                     fillOpacity: 0.5,
-                    radius: json.wojewodztwa[i - 1] * 200
+                    radius: wojewodztwa[i - 1] * 200
                 }).addTo(mymap);
             }
         }
