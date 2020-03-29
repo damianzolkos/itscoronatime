@@ -25,7 +25,8 @@
             <img id="logo_wide" src="logo_wide.png" alt="logo">
             <img id="logo_mobile" src="logo.png" alt="logo">
         </div>
-        <div id="lead">Informacje na temat rozprzestrzeniania się i obecności koronawirusa w Polsce</div>
+        <div id="lead">Informacje na temat rozprzestrzeniania się i obecności koronawirusa w Polsce, bo mi się nudziło i
+            nigdzie nie było ładnego wykresu</div>
         <div id="menu">
             <ul>
                 <a href="#info">
@@ -33,6 +34,9 @@
                 </a>
                 <a href="#trajektoriaID">
                     <li>Trajektoria</li>
+                </a>
+                <a href="#wojewodztwa">
+                    <li>Województwa</li>
                 </a>
                 <a href="#wzrostID">
                     <li>Wzrost</li>
@@ -61,34 +65,35 @@
             <p class="text">Linia trendu: 0.8683x^0.7418</p>
             <canvas id="trajektoria" width="10" height="6"></canvas>
         </article>
-        <!-- <article class="info">
+        <article class="info">
             <br>
             <h2 id="wojewodztwa">Ilość potwierdzonych przypadków</h2>
             <p class="text">z podziałem na województwa</p>
+            <p class="text">ostatnia aktualizacja: 28.03.2020, 13:00</p>
             <div id="w">
                 <div class="wdiv w1">
-                    <p class="wname">dolnośląskie: <span class="box wbox even" id="1">100</span></p>
-                    <p class="wname">kujawsko-pomorskie: <span class="box wbox" id="2">788</span></p>
-                    <p class="wname">lubelskie: <span class="box wbox even" id="3">2137</span></p>
-                    <p class="wname">lubuskie: <span class="box wbox" id="4">69</span></p>
-                    <p class="wname">łódzkie <span class="box wbox even" id="5">100</span></p>
-                    <p class="wname">małopolskie: <span class="box wbox" id="6">100</span></p>
-                    <p class="wname">mazowieckie: <span class="box wbox even" id="7">100</span></p>
-                    <p class="wname">opolskie: <span class="box wbox" id="8">100</span></p>
+                    <p class="wname">dolnośląskie: <span class="box wbox even" id="1">0</span></p>
+                    <p class="wname">kujawsko-pomorskie: <span class="box wbox" id="2">0</span></p>
+                    <p class="wname">lubelskie: <span class="box wbox even" id="3">0</span></p>
+                    <p class="wname">lubuskie: <span class="box wbox" id="4">0</span></p>
+                    <p class="wname">łódzkie <span class="box wbox even" id="5">0</span></p>
+                    <p class="wname">małopolskie: <span class="box wbox" id="6">0</span></p>
+                    <p class="wname">mazowieckie: <span class="box wbox even" id="7">0</span></p>
+                    <p class="wname">opolskie: <span class="box wbox" id="8">0</span></p>
                 </div>
                 <div class="wdiv w2">
-                    <p class="wname">podkarpackie: <span class="box wbox even" id="9">100</span></p>
-                    <p class="wname">podlaskie: <span class="box wbox" id="10">100</span></p>
-                    <p class="wname">pomorskie: <span class="box wbox even" id="11">100</span></p>
-                    <p class="wname">śląskie: <span class="box wbox" id="12">100</span></p>
-                    <p class="wname">świętokrzyskie: <span class="box wbox even" id="13">100</span></p>
-                    <p class="wname">warmińsko-mazurskie: <span class="box wbox" id="14">100</span></p>
-                    <p class="wname">wielkopolskie: <span class="box wbox even" id="15">100</span></p>
-                    <p class="wname">zachodniopomorskie: <span class="box wbox" id="16">100</span></p>
+                    <p class="wname">podkarpackie: <span class="box wbox even" id="9">0</span></p>
+                    <p class="wname">podlaskie: <span class="box wbox" id="10">0</span></p>
+                    <p class="wname">pomorskie: <span class="box wbox even" id="11">0</span></p>
+                    <p class="wname">śląskie: <span class="box wbox" id="12">0</span></p>
+                    <p class="wname">świętokrzyskie: <span class="box wbox even" id="13">0</span></p>
+                    <p class="wname">warmińsko-mazurskie: <span class="box wbox" id="14">0</span></p>
+                    <p class="wname">wielkopolskie: <span class="box wbox even" id="15">0</span></p>
+                    <p class="wname">zachodniopomorskie: <span class="box wbox" id="16">0</span></p>
                 </div>
             </div>
             <div id="mapid"></div>
-        </article> -->
+        </article>
         <article>
             <h2 id="wzrostID">Wzrost potwierdzonych przypadków</h2>
             <!-- <p class="text">Lorem ipsum dolor sit amet.</p> -->
@@ -112,34 +117,34 @@
         wersja: 0.1.beta
     </div>
 
-    <!-- <script>
-        var json = {};  
+    <script>
+        var json = {};
         async function map() {
-        var mymap = L.map('mapid').setView([52.039, 19.556], 13);
-        L.tileLayer(
-            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWVzb3BvZGFtaWFuIiwiYSI6ImNrOGJsczB4NTBkZWwzamx2N2k1dmlrb2cifQ.eCiVRNg703j-7gNDqiBVLw', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                maxZoom: 6,
-                id: 'mapbox/streets-v11',
-                tileSize: 512,
-                zoomOffset: -1,
-                accessToken: 'your.mapbox.access.token'
-            }).addTo(mymap);
+            var mymap = L.map('mapid').setView([52.039, 19.556], 13);
+            L.tileLayer(
+                'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWVzb3BvZGFtaWFuIiwiYSI6ImNrOGJsczB4NTBkZWwzamx2N2k1dmlrb2cifQ.eCiVRNg703j-7gNDqiBVLw', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 6,
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1,
+                    accessToken: 'your.mapbox.access.token'
+                }).addTo(mymap);
 
-        let url = 'data.json';
-        json = await (await fetch(url)).json();
+            let url = 'data.json';
+            json = await (await fetch(url)).json();
 
-        for (i = 1; i < 17; i++) {
-            var circle = L.circle([json.longitude[i - 1], json.latitude[i - 1]], {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.5,
-                radius: json.wojewodztwa[i - 1] * 200
-            }).addTo(mymap);
+            for (i = 1; i < 17; i++) {
+                var circle = L.circle([json.longitude[i - 1], json.latitude[i - 1]], {
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.5,
+                    radius: json.wojewodztwa[i - 1] * 200
+                }).addTo(mymap);
+            }
         }
-    }
-    map();
-    </script> -->
+        map();
+    </script>
 
 </body>
 
