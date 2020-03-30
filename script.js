@@ -87,7 +87,7 @@ async function load() {
                 ticks: {
                     callback: function (value, index, values) {
                         if (value == 10) return 10;
-                        else if (value == 100) return 10;
+                        else if (value == 100) return 100;
                         else if (value == 1000) return "1K";
                         else if (value == 10000) return "10K";
                         else if (value == 100000) return "100K";
