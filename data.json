@@ -1,29 +1,29 @@
 {
     "newCases": [
-        2, 3, 5, 6, 5, 9, 20, 17, 36, 21, 52, 61, 49, 68, 70, 111, 98, 115, 152, 150, 170, 168, 249, 224
+        2, 3, 5, 6, 5, 9, 20, 17, 36, 21, 52, 61, 49, 68, 70, 111, 98, 115, 152, 150, 170, 168, 249, 224, 193
     ],
     "woj": {
-        "dolnośląskie": 234,
-        "kujawskopomorskie": 47,
-        "lubelskie": 101,
-        "lubuskie": 45,
-        "łódzkie": 190,
-        "małopolskie": 150,
-        "mazowieckie": 461,
-        "opolskie": 43,
-        "podkarpackie": 76,
-        "podlaskie": 28,
-        "pomorskie": 45,
-        "śląskie": 195,
-        "świętokrzyskie": 34,
-        "warmińskomazurskie": 56,
-        "wielkopolskie": 110,
-        "zachodniopomorskie": 57
+        "dolnośląskie": 258,
+        "kujawskopomorskie": 72,
+        "lubelskie": 111,
+        "lubuskie": 36,
+        "łódzkie": 202,
+        "małopolskie": 174,
+        "mazowieckie": 487,
+        "opolskie": 54,
+        "podkarpackie": 80,
+        "podlaskie": 36,
+        "pomorskie": 48,
+        "śląskie": 209,
+        "świętokrzyskie": 37,
+        "warmińskomazurskie": 57,
+        "wielkopolskie": 134,
+        "zachodniopomorskie": 59
     },
 
     "longitude": [51.104, 53.114, 51.2396, 51.951, 51.727, 50.006, 52.214, 50.6616, 50.0501, 53.127, 54.201, 50.3034, 50.736, 53.8606, 52.342, 53.475],
     "latitude": [17.018, 18.49, 22.5961, 15.546, 19.468, 20.1599, 21.028, 17.9187, 21.9644, 23.126, 17.842, 18.9212, 20.687, 20.9674, 17.468, 15.425],
 
-    "deaths": 22,
-    "refresh": "29.03.2020, 20:40"
+    "deaths": 31,
+    "refresh": "30.03.2020, 21:28"
 }
