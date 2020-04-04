@@ -124,6 +124,9 @@ a:visited {
 #deaths {
     background-color: #111;
 }
+#recoveries {
+    background-color: #28aa00;
+}
 
 article {
     margin: 50px auto;

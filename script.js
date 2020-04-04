@@ -17,6 +17,7 @@ async function load() {
     cases = cases + 1;
     document.getElementById('cases').innerHTML = cases;
     document.getElementById('deaths').innerHTML = json.deaths;
+    document.getElementById('recoveries').innerHTML = json.recoveries;
     document.getElementById('daily').innerHTML = "+" + json.newCases[json.newCases.length - 1];
     document.getElementById('refresh').innerHTML = json.refresh;
 
