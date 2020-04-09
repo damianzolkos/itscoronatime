@@ -133,9 +133,6 @@ async function load() {
             };
         }
 
-        // console.log(data1.datasets[0].data);
-        // console.log(data1.datasets[1].data);
-
         let myChart = new Chart(ctx1, {
             type: 'line',
             data: data1,
@@ -211,8 +208,6 @@ async function load() {
                 y: data1.datasets[0].data[i]["x"]
             }
         }
-
-        // console.log(data2.datasets[0].data);
 
         let myChart = new Chart(ctx2, {
             type: 'line',
@@ -299,9 +294,6 @@ async function load() {
             }
         }
 
-        // console.log(data3.datasets[0].data);
-        // console.log(data3.datasets[1].data);
-
         let myChart = new Chart(ctx3, {
             type: 'line',
             data: data3,
@@ -309,10 +301,6 @@ async function load() {
         });
     }
     renderChart3();
-
-
-    // y = 0.0001*data3.labels[i]^4 - 0.0016*data3.labels[i]^3 + 0.4064*data3.labels[i]^2 - 0.9058*data3.labels[i] + 2.7353
-
 
 }
 load();
